@@ -11,6 +11,7 @@ class Constants(BaseConstants):
     multiplier = 2
     admin_report_template = 'public_goods_4/admin_report.html'
     instructions_template = 'public_goods_4/instructions.html'
+
 def vars_for_admin_report(subsession):
     session = subsession.session
     contributions = [p.contribution for p in subsession.get_players() if p.contribution != None]
@@ -54,4 +55,4 @@ class Results(Page):
     def vars_for_template(player):
         group = player.group
         return dict(total_earnings=group.total_contribution * Constants.multiplier)
-page_sequence = [Introduction, Contribute, ResultsWaitPage, Results]
+page_sequence = [Contribute, ResultsWaitPage, Results]
